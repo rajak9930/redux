@@ -12,7 +12,7 @@ const Index = () => {
     console.log("api call ", query);
     try {
       const res = await axios.get(
-        `https://app.albia.in/wp-json/alb/v1/search-products?pro_offset=10&product_name=${search}`
+        `https://app.albia.in/wp-json/alb/v1/search-products?pro_offset=10&product_name=${query}`
       );
       console.log("data", res.data.data);
       setData(res.data.data);

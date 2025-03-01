@@ -4,16 +4,22 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import  {  store, persist } from "./curd/redux/store";
+import { store, persist } from "./curd/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { CounterProvider } from "./hooks/CounterContext";
+import { RajaProvider } from "./hooks/MyCounter";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persist}>
-        <App />
-      </PersistGate>
+      <CounterProvider>
+        <PersistGate loading={null} persistor={persist}>
+          <RajaProvider>
+            <App />
+          </RajaProvider>
+        </PersistGate>
+      </CounterProvider>
     </Provider>
   </React.StrictMode>
 );
