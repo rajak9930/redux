@@ -1,11 +1,12 @@
-import Index from "./context/Index";
-
-
-
-
+import { ErrorBoundary } from "react-error-boundary";
+import Index from "./lazy/Index";
 
 function App() {
-  return <Index/>
+  return (
+    <ErrorBoundary FallbackComponent={ErrorBoundary}>
+      <Index />
+    </ErrorBoundary>
+  );
 }
 
 export default App;
